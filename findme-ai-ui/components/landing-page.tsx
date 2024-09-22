@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, BookOpen, Users, Zap, Compass, FileQuestion } from "lucide-react"
+import { ArrowRight, BookOpen, Users, Compass, FileQuestion } from "lucide-react"
 
 export function LandingPage() {
   const [showQuestionnaire, setShowQuestionnaire] = useState(false)
