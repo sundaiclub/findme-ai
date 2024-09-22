@@ -1,0 +1,4 @@
+openai
+wordcloud
+nltk
+matplotlib
