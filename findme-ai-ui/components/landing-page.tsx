@@ -155,9 +155,9 @@ export function LandingPage() {
         </section>
         {showQuestionnaire && (
           <section ref={questionnaireRef} className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-[100vh]">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">FindMe AI Questionnaire</h2>
-              <div className="w-full max-w-4xl mx-auto aspect-video">
+              <div className="w-full max-w-7xl mx-auto h-[800px]"> {/* Increase max width and height */}
                 <iframe
                   src="https://findme-ai-sundai.streamlit.app?embedded=true"
                   title="FindMe AI Questionnaire"
