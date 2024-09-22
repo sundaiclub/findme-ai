@@ -22,7 +22,7 @@ def scrape_data(url):
     text = soup.get_text(separator=' ', strip=True)
 
     cleaned_text = clean_scrap_data(text)
-    return {url: cleaned_text}
+    return cleaned_text
 
 def clean_scrap_data(scrapped_data):
     scrapped_data = re.sub(r'\s+', ' ', scrapped_data).strip()

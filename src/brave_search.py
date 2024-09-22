@@ -2,11 +2,11 @@ import requests
 import os
 import json
 from dotenv import load_dotenv
-from scraper import *
+from src.scraper import scrape_data 
 
 load_dotenv()
 
-BRAVE_API_TOKEN = os.getenv('BRAVE_API_TOKEN')
+BRAVE_API_TOKEN = os.getenv('BRAVE_API_KEY')
 
 def parse_brave_search_results(search_results):
     if search_results is None:

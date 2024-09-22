@@ -43,3 +43,24 @@ Ensure that the topics are presented as a JSON array with each item in quotation
 
 Output:
 """
+
+
+pathway_creator = """
+"Using the provided web search data, create a personalized learning pathway for the user in the provided category. 
+Consider the user's interests, goals, and background as described in their bio. 
+Your response should include a curated list of relevant events that align with the user's preferences, along with brief descriptions and how each event can contribute to their learning journey. Ensure that the recommendations are diverse and cater to different aspects of their interests."
+
+Category:
+{category}
+
+User Bio:
+{summary}
+
+Web Search Data:
+{web_search_results}
+
+Only output the pathway in markdown format.
+Give the output in the markdown format.
+
+Output:
+"""

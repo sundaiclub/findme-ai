@@ -5,7 +5,9 @@ import os
 
 from src.topic_extractor import extract_topics_from_answers
 from src.query_generator import generate_queries
-from src.prompts import query_gen_prompt, topic_extractor_prompt
+from src.prompts import query_gen_prompt, topic_extractor_prompt, pathway_creator
+from src.brave_search import brave_search_and_scrape
+from src.path_generator import create_path
 
 from dotenv import load_dotenv
 
@@ -89,11 +91,28 @@ def main():
                             summary = data["summary"]
                     with st.spinner("Extracting Topics..."):
                         topics = extract_topics_from_answers(topic_extractor_prompt, summary)
-                        st.write("Topics:", topics)
 
                     with st.spinner("Generating Queries..."):
                         queries = generate_queries(query_gen_prompt,str(topics), summary)
-                        st.write("Queries:", queries)
+
+                    with st.spinner("Retrieving Information..."):
+                        info = {}
+                        for k, v in queries.items():
+                            info[k] = [brave_search_and_scrape(q) for q in v]
+                    
+                    with st.spinner("Creating Pathways..."):
+                        pathways = {}
+                        for k, v in info.items():
+                            content = ''
+                            for res in v:
+                                for k_, v_ in res.items():
+                                    content += f"{k_}: {v_}\n"
+                            pathways[k] = create_path(pathway_creator, k, summary, content)
+
+                        for k, v in pathways.items():
+                            st.markdown(f"## {k}")
+                            st.markdown(v)
+
 
     st.write(f"Questions answered: {st.session_state.question_count}/10")
 
