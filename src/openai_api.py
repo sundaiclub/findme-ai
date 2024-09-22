@@ -5,15 +5,15 @@ load_dotenv()
 
 
 
-class OpenAiApi:
+class OpenAIApi:
     def __init__(self):
-        self.openai_api_key = openai.OpenAI(os.getenv("OPENAI_API_KEY"))
+        self.openai_api = openai.OpenAI()
 
     def get_completion(self, prompt, model="gpt-4o-mini"):
         messages = [{"role": "user", "content": prompt}]
-        response = openai.chat.completions.create(
+        response = self.openai_api.chat.completions.create(
             model=model,
             messages=messages,
             temperature=0,  # this is the degree of randomness of the model's output
         )
-        return response.choices[0].message["content"]
+        return response.choices[0].message.content
