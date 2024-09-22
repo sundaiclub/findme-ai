@@ -2,3 +2,4 @@ openai
 wordcloud
 nltk
 matplotlib
+bs4
