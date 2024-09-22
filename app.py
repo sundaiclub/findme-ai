@@ -9,10 +9,6 @@ from src.prompts import query_gen_prompt, topic_extractor_prompt, pathway_creato
 from src.brave_search import brave_search_and_scrape
 from src.path_generator import create_path
 
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
 
 # Set up OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))

@@ -1,10 +1,8 @@
 import requests
 import os
 import json
-from dotenv import load_dotenv
 from src.scraper import scrape_data 
 
-load_dotenv()
 
 BRAVE_API_TOKEN = os.getenv('BRAVE_API_KEY')
 
