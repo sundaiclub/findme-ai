@@ -159,9 +159,10 @@ export function LandingPage() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">FindMe AI Questionnaire</h2>
               <div className="w-full max-w-4xl mx-auto aspect-video">
                 <iframe
-                  src="https://findme-ai-sundai.streamlit.app/"
+                  src="https://findme-ai-sundai.streamlit.app?embedded=true"
                   title="FindMe AI Questionnaire"
                   className="w-full h-full border-0 rounded-lg shadow-lg"
+                  sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                 />
               </div>
             </div>
