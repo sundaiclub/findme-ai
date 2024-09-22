@@ -78,6 +78,12 @@ def main():
 
                     st.write("Chat and summary have been saved to user_profile.json")
 
+                if os.path.exists("user_profile.json"):
+                    with open("user_profile.json", "r") as f:
+                        data = json.load(f)
+                        summary = data["summary"]
+                
+
     st.write(f"Questions answered: {st.session_state.question_count}/10")
 
 if __name__ == "__main__":
