@@ -11,7 +11,7 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Load questionnaire prompt
-with open("questionnaire-prompt.txt", "r") as f:
+with open("streamlit-app/questionnaire-prompt.txt", "r") as f:
     questionnaire_prompt = f.read()
 
 def get_ai_response(messages):
