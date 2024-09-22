@@ -108,9 +108,8 @@ def main():
                                 for k_, v_ in res.items():
                                     content += f"{k_}: {v_}\n"
                             pathways[k] = create_path(pathway_creator, k, summary, content)
-
-                        for k, v in pathways.items():
-                            st.markdown(f"## {k}")
+                    for k, v in pathways.items():
+                        with st.expander(k):
                             st.markdown(v)
 
 

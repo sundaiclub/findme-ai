@@ -33,9 +33,6 @@ def brave_search(query, count=10):
     try:
         response = requests.get(base_url, headers=headers, params=params)
         response.raise_for_status()
-        # write the response to a file
-        with open("brave_search_results.json", "w") as f:
-            f.write(json.dumps(response.json()))
         return parse_brave_search_results(response.json()) if response.status_code == 200 else response.json()
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")

@@ -19,7 +19,6 @@ def extract_topics_from_answers(prompt, questionaire):
     for i in range(3):
         try:
             response = openai_api.get_completion(prompt)
-            print(response)
             response = parse_response(response)
             if response:
                 return response
